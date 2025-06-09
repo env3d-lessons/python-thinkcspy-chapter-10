@@ -45,7 +45,6 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import nltk
 from urllib.request import urlopen, Request
 import json
-import gradio as gr
 
 nltk.download('vader_lexicon')
 sid = SentimentIntensityAnalyzer()
@@ -217,6 +216,8 @@ def get_most_negative_news():
 ### DO NOT MODIFY THE CODE BELOW THIS LINE ###
 
 if __name__ == "__main__":
+    
+    import gradio as gr
     
     # --- Gradio UI Section ---
     def ui_get_sentiments(sentences):
