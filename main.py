@@ -215,70 +215,72 @@ def get_most_negative_news():
 
 
 ### DO NOT MODIFY THE CODE BELOW THIS LINE ###
-# --- Gradio UI Section ---
-def ui_get_sentiments(sentences):
-    # Split input by newlines, strip whitespace, ignore empty lines
-    lines = [line.strip() for line in sentences.split('\n') if line.strip()]
-    return get_sentiments(lines)
-
-def ui_positive_only(sentences):
-    lines = [line.strip() for line in sentences.split('\n') if line.strip()]
-    return '\n'.join(positive_only(lines))
-
-def ui_negative_only(sentences):
-    lines = [line.strip() for line in sentences.split('\n') if line.strip()]
-    return '\n'.join(negative_only(lines))
-
-def ui_get_max_score(sentences):
-    lines = [line.strip() for line in sentences.split('\n') if line.strip()]
-    return get_max_score(lines)
-
-def ui_get_min_score(sentences):
-    lines = [line.strip() for line in sentences.split('\n') if line.strip()]
-    return get_min_score(lines)
-
-def ui_get_most_positive_news():
-    return get_most_positive_news()
-
-def ui_get_most_negative_news():
-    return get_most_negative_news()
-
-with gr.Blocks() as demo:
-    gr.Markdown("# News Sentiment Analyzer")
-
-    with gr.Tab("Sentiment Scores"):
-        inp = gr.Textbox(label="Enter sentences (one per line) - use SHIFT+ENTER for new line")
-        out = gr.JSON(label="Sentiment Scores")
-        inp.submit(ui_get_sentiments, inp, out)
-        gr.Button("Analyze").click(ui_get_sentiments, inp, out)
-
-    with gr.Tab("Positive Only"):
-        inp2 = gr.Textbox(label="Enter sentences (one per line) - use SHIFT+ENTER for new line")
-        out2 = gr.Textbox(label="Positive Sentences")
-        inp2.submit(ui_positive_only, inp2, out2)
-        gr.Button("Show Positive").click(ui_positive_only, inp2, out2)
-
-    with gr.Tab("Negative Only"):
-        inp3 = gr.Textbox(label="Enter sentences (one per line) - use SHIFT+ENTER for new line")
-        out3 = gr.Textbox(label="Negative Sentences")
-        inp3.submit(ui_negative_only, inp3, out3)
-        gr.Button("Show Negative").click(ui_negative_only, inp3, out3)
-
-    with gr.Tab("Max/Min Score"):
-        inp4 = gr.Textbox(label="Enter sentences (one per line) - use SHIFT+ENTER for new line")
-        out4 = gr.Number(label="Max Score")
-        out5 = gr.Number(label="Min Score")
-        inp4.submit(ui_get_max_score, inp4, out4)
-        inp4.submit(ui_get_min_score, inp4, out5)
-        gr.Button("Get Max Score").click(ui_get_max_score, inp4, out4)
-        gr.Button("Get Min Score").click(ui_get_min_score, inp4, out5)
-
-    with gr.Tab("Live News"):
-        out6 = gr.Textbox(label="Most Positive News")
-        out7 = gr.Textbox(label="Most Negative News")
-        gr.Button("Get Most Positive News").click(ui_get_most_positive_news, None, out6)
-        gr.Button("Get Most Negative News").click(ui_get_most_negative_news, None, out7)
 
 if __name__ == "__main__":
+    
+    # --- Gradio UI Section ---
+    def ui_get_sentiments(sentences):
+        # Split input by newlines, strip whitespace, ignore empty lines
+        lines = [line.strip() for line in sentences.split('\n') if line.strip()]
+        return get_sentiments(lines)
+
+    def ui_positive_only(sentences):
+        lines = [line.strip() for line in sentences.split('\n') if line.strip()]
+        return '\n'.join(positive_only(lines))
+
+    def ui_negative_only(sentences):
+        lines = [line.strip() for line in sentences.split('\n') if line.strip()]
+        return '\n'.join(negative_only(lines))
+
+    def ui_get_max_score(sentences):
+        lines = [line.strip() for line in sentences.split('\n') if line.strip()]
+        return get_max_score(lines)
+
+    def ui_get_min_score(sentences):
+        lines = [line.strip() for line in sentences.split('\n') if line.strip()]
+        return get_min_score(lines)
+
+    def ui_get_most_positive_news():
+        return get_most_positive_news()
+
+    def ui_get_most_negative_news():
+        return get_most_negative_news()
+
+    with gr.Blocks() as demo:
+        gr.Markdown("# News Sentiment Analyzer")
+
+        with gr.Tab("Sentiment Scores"):
+            inp = gr.Textbox(label="Enter sentences (one per line) - use SHIFT+ENTER for new line")
+            out = gr.JSON(label="Sentiment Scores")
+            inp.submit(ui_get_sentiments, inp, out)
+            gr.Button("Analyze").click(ui_get_sentiments, inp, out)
+
+        with gr.Tab("Positive Only"):
+            inp2 = gr.Textbox(label="Enter sentences (one per line) - use SHIFT+ENTER for new line")
+            out2 = gr.Textbox(label="Positive Sentences")
+            inp2.submit(ui_positive_only, inp2, out2)
+            gr.Button("Show Positive").click(ui_positive_only, inp2, out2)
+
+        with gr.Tab("Negative Only"):
+            inp3 = gr.Textbox(label="Enter sentences (one per line) - use SHIFT+ENTER for new line")
+            out3 = gr.Textbox(label="Negative Sentences")
+            inp3.submit(ui_negative_only, inp3, out3)
+            gr.Button("Show Negative").click(ui_negative_only, inp3, out3)
+
+        with gr.Tab("Max/Min Score"):
+            inp4 = gr.Textbox(label="Enter sentences (one per line) - use SHIFT+ENTER for new line")
+            out4 = gr.Number(label="Max Score")
+            out5 = gr.Number(label="Min Score")
+            inp4.submit(ui_get_max_score, inp4, out4)
+            inp4.submit(ui_get_min_score, inp4, out5)
+            gr.Button("Get Max Score").click(ui_get_max_score, inp4, out4)
+            gr.Button("Get Min Score").click(ui_get_min_score, inp4, out5)
+
+        with gr.Tab("Live News"):
+            out6 = gr.Textbox(label="Most Positive News")
+            out7 = gr.Textbox(label="Most Negative News")
+            gr.Button("Get Most Positive News").click(ui_get_most_positive_news, None, out6)
+            gr.Button("Get Most Negative News").click(ui_get_most_negative_news, None, out7)
+
     demo.launch()
 
