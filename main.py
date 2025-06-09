@@ -247,25 +247,25 @@ with gr.Blocks() as demo:
     gr.Markdown("# News Sentiment Analyzer")
 
     with gr.Tab("Sentiment Scores"):
-        inp = gr.Textbox(label="Enter sentences (one per line)")
+        inp = gr.Textbox(label="Enter sentences (one per line) - use SHIFT+ENTER for new line")
         out = gr.JSON(label="Sentiment Scores")
         inp.submit(ui_get_sentiments, inp, out)
         gr.Button("Analyze").click(ui_get_sentiments, inp, out)
 
     with gr.Tab("Positive Only"):
-        inp2 = gr.Textbox(label="Enter sentences (one per line)")
+        inp2 = gr.Textbox(label="Enter sentences (one per line) - use SHIFT+ENTER for new line")
         out2 = gr.Textbox(label="Positive Sentences")
         inp2.submit(ui_positive_only, inp2, out2)
         gr.Button("Show Positive").click(ui_positive_only, inp2, out2)
 
     with gr.Tab("Negative Only"):
-        inp3 = gr.Textbox(label="Enter sentences (one per line)")
+        inp3 = gr.Textbox(label="Enter sentences (one per line) - use SHIFT+ENTER for new line")
         out3 = gr.Textbox(label="Negative Sentences")
         inp3.submit(ui_negative_only, inp3, out3)
         gr.Button("Show Negative").click(ui_negative_only, inp3, out3)
 
     with gr.Tab("Max/Min Score"):
-        inp4 = gr.Textbox(label="Enter sentences (one per line)")
+        inp4 = gr.Textbox(label="Enter sentences (one per line) - use SHIFT+ENTER for new line")
         out4 = gr.Number(label="Max Score")
         out5 = gr.Number(label="Min Score")
         inp4.submit(ui_get_max_score, inp4, out4)
