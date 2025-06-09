@@ -1,46 +1,3 @@
-"""
-
-Challenge 10b: Lists
-
-Learning Objectives:
-
- - Practice using lists and and list indexing,
- - Practice using loops,
- - Practice writing functions.
-
-
-Background
-
-In recent years, AI advances have allowed computers to perform functions that used to be the exclusive domain of 
-human beings.  One of these fields is for computers to understand natural languages.
-
-Understanding may be a bit of an overstatement, as you will see, the AI system is simply providing us a
-function where the input is a sentence, and it returns the sentence's sentiment as a number.
-
-Your job is to use this AI to analyze live newsfeeds.
-
-I have provided you with the following 2 functions:
-
-    get_sentiment(sentence) - given a sentence (string), it returns a number indiciating the sentiment (or emotion) of the 
-    sentence.  Note the following interaction:
-
-    > get_sentiment('this is going to be a great day!')
-    0.6588
-    > get_sentiment('i hate rainy mornings!')
-    -0.6476
-
-    The number returned is of float type and in the range of [-1.0, 1.0].  The higher the number, the more positive the sentence,
-    and vice-versa/
-
-    get_news_excerpt() - retrieves a list of current news excerpts.  
-    
-
-You will need to use these functions to complete the exercises.  Pretty much all exercises require you to loop over a list 
-of itmes using a for loop and process each item in the list.
-
-"""
-
-
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import nltk
 from urllib.request import urlopen, Request
@@ -216,7 +173,7 @@ def get_most_negative_news():
 ### DO NOT MODIFY THE CODE BELOW THIS LINE ###
 
 if __name__ == "__main__":
-    
+
     import gradio as gr
     
     # --- Gradio UI Section ---
