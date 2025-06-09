@@ -19,6 +19,7 @@ jobs:
       with:
         timeout: 10
         max-score: 8
+        setup-command: pip install nltk
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
